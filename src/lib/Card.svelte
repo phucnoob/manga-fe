@@ -7,7 +7,7 @@
 </script>
 
 
-<a href="#" class="block">
+<a href="#/manga/:id" class="block">
     <img src={info.cover} alt={info.name}>
     <p>{info.name}</p>
 </a>

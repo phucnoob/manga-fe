@@ -2,11 +2,14 @@
   import Header from "./lib/Header.svelte";
   import Footer from "./lib/Footer.svelte";
   import Card from "./lib/Card.svelte";
+  import Section from "./lib/Section.svelte";
+  import Router from "svelte-spa-router"
+  import routes from "./routes"
 
   let headerHeight = 0;
   let lastScollY = Number.NEGATIVE_INFINITY;
   let scrollY = 0;
-  $: show = scrollY < headerHeight * 5 || scrollY < lastScollY; // Scroll up.
+  $: show = scrollY < headerHeight || scrollY < lastScollY; // Scroll up.
 
   $: console.log(scrollY, headerHeight);
   function handleScroll() {
@@ -24,24 +27,17 @@
     }
   }
 </script>
+<svelte:window on:scroll={handleScroll}/>
 
 <Header bind:height={headerHeight} {show}/>
-<main>
-  {#await mangas()}
-    <p>Loading......</p>
-  {:then items}
-    {#each items as item}
-       <Card info={item} />
-    {/each}
-  {/await}
-</main>
-<svelte:window on:scroll={handleScroll}/>
+
+<Section>
+  <div>
+    <Router {routes} />
+  </div>
+</Section>
+
 <Footer />
 
 <style>
-  main {
-    color: #06060e;
-    padding-top: 4rem;
-    min-height: 800px;
-  }
 </style>

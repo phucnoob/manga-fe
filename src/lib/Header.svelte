@@ -24,8 +24,7 @@
 
 <style lang="postcss">
     header {
-        position: fixed;
-        @apply w-full bg-slate-800 flex justify-center h-12 transition-transform duration-[600ms];
+        @apply w-full bg-slate-800 fixed top-0 flex justify-center h-12 transition-transform duration-[600ms];
     }
 
     .scrolled {
