@@ -1,10 +1,12 @@
-import Home from "./views/Home.svelte";
-import NotFound from "./views/Notfound.svelte"
+import HomeSvelte from "./views/Home.svelte";
+import MangaSvelte from "./views/Manga.svelte";
+import Notfound from "./views/Notfound.svelte";
 
 const routes = {
-    "/": Home,
+    "/": HomeSvelte,
+    "/manga/:id": MangaSvelte,
 
-    "*": NotFound
+    "*": Notfound
 }
 
 export default routes;

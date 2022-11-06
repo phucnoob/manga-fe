@@ -10,8 +10,6 @@
   let lastScollY = Number.NEGATIVE_INFINITY;
   let scrollY = 0;
   $: show = scrollY < headerHeight || scrollY < lastScollY; // Scroll up.
-
-  $: console.log(scrollY, headerHeight);
   function handleScroll() {
     lastScollY = scrollY;
     scrollY = window.scrollY;
@@ -31,13 +29,15 @@
 
 <Header bind:height={headerHeight} {show}/>
 
-<Section>
-  <div>
-    <Router {routes} />
-  </div>
-</Section>
+<div class="container mx-auto mt-16 mb-4 min-h-screen rounded">
+  <Router {routes} />
+</div>
 
-<Footer />
+<Footer/>
+
+<a href="#" class="to-header border-[#222f3e] py-1 px-1 bg-[#b2bec3] hover:bg-[#2d3436] transition-colors text-blue-50 bg-opacity-20 border rounded fixed right-12 bottom-1">
+  <i class="fas fa-angle-double-up"></i>
+</a>
 
 <style>
 </style>
