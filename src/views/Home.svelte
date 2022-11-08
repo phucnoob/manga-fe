@@ -7,7 +7,8 @@
     let info = {
         id: 1,
         name: "Kubo-san wa Boku (Mobu) wo Yurusanai",
-        cover: "https://cdn1.lhmanga.com/Store/Manga/60a46e52a2275_60a46e53008dd.jpg"
+        cover: "https://cdn1.lhmanga.com/Store/Manga/60a46e52a2275_60a46e53008dd.jpg",
+        description: ""
     };
 
     let popularMangas = async () => {
@@ -87,7 +88,7 @@
         @apply text-xs;
     }
 
-    .history :global(.card) {
+    .history :global(.item) {
         
     }
 </style>

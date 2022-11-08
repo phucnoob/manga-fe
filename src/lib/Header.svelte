@@ -1,5 +1,7 @@
 
 <script>
+    import Search from "./Search.svelte";
+
     export let show = true;
     export let height = 0;
 </script>
@@ -10,12 +12,7 @@
         <img class="logo" alt="App logo" src="/logo.png">
 
         <div class="navbar">
-            <div class="search-box">
-                <input type="text" placeholder="Tìm kiếm" class="search-input">
-                <button class="">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </button>
-            </div>
+            <Search></Search>
             <a href="#" class="sign-in">Đăng nhập</a>
         </div>
     </div>
@@ -46,14 +43,5 @@
     .navbar {
         @apply text-sm py-2 flex justify-between items-center w-1/3 text-stone-100;
     }
-
-    .search-box {
-        @apply bg-[#2c3e50] flex grow p-1 px-4 ring-black outline-none h-7 rounded-[2rem] mx-2;
-    }
-    .search-input {
-        @apply w-full outline-none bg-transparent;
-    }
-
-
 </style>
 <!-- End Navbar -->

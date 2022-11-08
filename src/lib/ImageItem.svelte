@@ -2,38 +2,40 @@
     interface Manga {
         id: number,
         name: string,
-        cover: string
+        cover: string,
+        description: string
     }
 
     export let info: Manga;
 </script>
 
 
-<a href="#/manga/:id" class="card">
+<a href="#/manga/:id" on:keydown on:blur class="item">
     <img src={info.cover} alt={info.name}>
-    <div class="flex flex-col grow p-1">
+    <div class="flex flex-col grow px-1">
         <h4>{info.name}</h4>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil fugit excepturi dignissimos dolores iure qui pariatur, exercitationem, nesciunt repellendus expedita repellat voluptatem, temporibus possimus deleniti recusandae perspiciatis aspernatur asperiores. Unde?</p>
+        <p>{info.description}</p>
     </div>
 </a>
 
 <style lang="postcss">
-    .card {
-        @apply rounded flex grow h-[30%] w-full my-2 bg-[#34495e] brightness-100 overflow-y-hidden;
+    .item {
+        @apply rounded flex grow h-[30%] w-full first:mt-0 mt-1 bg-[#34495e] brightness-100 overflow-y-hidden;
     }
 
-    .card:hover {
+
+    .item:hover, .item:focus {
         @apply brightness-75;
     }
-    .card img {
+    .item img {
         @apply rounded block h-full;
     }
 
-    .card h4 {
+    .item h4 {
         @apply text-sm text-justify text-slate-50 font-semibold;
     }
 
-    .card p {
+    .item p {
         @apply text-[10px]  text-justify text-blue-100 text-ellipsis overflow-hidden;
     }
 
