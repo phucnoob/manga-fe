@@ -9,7 +9,7 @@
 </script>
 
 
-<a href="#/manga/:id" class="card">
+<a href="#/manga/{info.id}" class="card">
     <img src={info.cover} alt={info.name}>
     <p>{info.name}</p>
 </a>

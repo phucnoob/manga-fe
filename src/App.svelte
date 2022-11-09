@@ -1,11 +1,11 @@
 <script lang="ts">
-  import Header from "./lib/Header.svelte";
+  import Router from "svelte-spa-router";
   import Footer from "./lib/Footer.svelte";
-  import Card from "./lib/Card.svelte";
-  import Section from "./lib/Section.svelte";
-  import Router from "svelte-spa-router"
-  import routes from "./routes"
+  import Header from "./lib/Header.svelte";
+  import routes from "./routes";
+  import { getUrl } from "./stores";
 
+  // Handle headerbar scroll transition
   let headerHeight = 0;
   let lastScollY = Number.NEGATIVE_INFINITY;
   let scrollY = 0;
@@ -14,16 +14,10 @@
     lastScollY = scrollY;
     scrollY = window.scrollY;
   }
+  // End handle headerbar scroll transition
 
-  const mangas = async () => {
-    const response = await fetch("http://localhost:8080/api/v1/mangas/");
-    const body = await response.json();
-    if (body.success) {
-      return body.data;
-    } else {
-      return null;
-    }
-  }
+
+  
 </script>
 <svelte:window on:scroll={handleScroll}/>
 

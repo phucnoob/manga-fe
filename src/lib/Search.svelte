@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { getUrl } from "../stores";
     import { ajaxSearch, fetchMangaInfo } from "../utils";
     import ImageItem from "./ImageItem.svelte";
     let info = {
@@ -13,8 +14,9 @@
     let searchResult: Array<any> = [];
     let searchResultElement: HTMLElement;
 
-    let search = async (term) => {
-        return await ajaxSearch("http://localhost:8080/api/v1/mangas/ajax/search?name=" + term);
+    let search = async (term: string) => {
+        const url = getUrl("/mangas/ajax/search", {name: term});
+        return await ajaxSearch(url);
     }
 
     let updateSearchResult = async () => {
@@ -35,10 +37,10 @@
         let currentElement = event.target as HTMLElement;
         if (event.key === "ArrowDown") {
             let nextSibling = currentElement.nextElementSibling as HTMLElement;
-            nextSibling.focus();
+            nextSibling?.focus();
         } else if (event.key === "ArrowUp") {
-            let preSibling = currentElement.previousSibling as HTMLElement;
-            preSibling.focus();
+            let preSibling = currentElement.previousElementSibling as HTMLElement;
+            preSibling?.focus();
         }
     }
 

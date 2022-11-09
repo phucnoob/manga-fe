@@ -9,7 +9,7 @@
 <!-- Navbar -->
 <header class:scrolled={!show} bind:clientHeight={height}>
     <div class="header-container">
-        <img class="logo" alt="App logo" src="/logo.png">
+        <a href="#/"><img class="logo" alt="App logo" src="/logo.png"></a>
 
         <div class="navbar">
             <Search></Search>
